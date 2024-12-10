@@ -1,0 +1,72 @@
+<div class="userinfo">
+    <div class="avatar">
+        <img src="/assets/image/avatar/1.webp" alt="" class="avatar-img">
+        <!-- 右下角小徽章 -->
+        <!-- <img src="/assets/image/badge.webp" alt="" class="badge"> -->
+        <div class="username">
+            小桂子Guinevere
+        </div>
+
+    </div>
+    <div class="info">
+        <div class="fans">
+            <div>125.3万</div>
+            <div><i class="iconfont icon-fans1"></i>粉丝</div>
+        </div>
+        <div class="publish">
+            <div>22</div>
+            <div><i class="iconfont icon-file"></i>动态</div>
+        </div>
+    </div>
+</div>
+<ul class="category">
+    <!-- TODO 标签右上角的'@你'伪元素 -->
+    <li><a href="#"><i class="iconfont icon-all-fill"></i><span class="default">全部</span></a></li>
+    <!-- TODO 没有.default类的span会在前后加上'#'伪元素 -->
+    <li><a href="#"><i class="iconfont icon-file-write"></i><span>见鬼实录</span></a></li>
+    <li><a href="#"><i class="iconfont icon-chat-smile-3-line"></i><span>鬼话连篇</span></a></li>
+    <li><a href="#"><i class="iconfont icon-duiwu-copy"></i><span>捉鬼小队</span></a></li>
+</ul>
+
+
+aside {
+width: 210px;
+// height: 100%;
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+font-family: HanYi;
+color: #c1e4ea;
+border-collapse: collapse;
+}
+
+.userinfo {
+.avatar {
+height: 135px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-evenly;
+padding: 10px;
+border: 3px solid #2f3637;
+box-sizing: border-box;
+
+.avatar-img {
+position: relative;
+width: 50px;
+border-radius: 50%;
+
+&::after {
+content: "";
+display: block;
+background-image: url('/assets/image/badge.webp');
+width: 22px;
+height: 22px;
+// position: absolute;
+}
+}
+}
+}

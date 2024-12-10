@@ -1,75 +1,110 @@
-html{
+html {
     font-size: calc(100vw/1920);
 }
+
 body {
     height: 100vh;
-    background: url('/assets/image/bg2.png') no-repeat center/contain;
+    font-size: 18rem;
+    color: #73878d;
+    // background: url('/assets/image/bg2.png') no-repeat center/contain;
     background: url('/assets/image/bg.webp') no-repeat center/contain;
+
 }
 
 .container {
-    margin: 11.5vh auto 0;
-    height: 81vh;
-    width: 66.5vw;
-    transform: translateX(0.5%);
-    // outline: 1px solid white;
+    width: 1450rem;
+    height: 870rem;
+    margin: 125rem auto 0;
+    // background-color: #fff1;
 }
 
-
-
 aside {
-    width: 210px;
-    // height: 100%;
-
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    font-family: HanYi;
-    color: #c1e4ea;
-    border-collapse: collapse;
+    width: 300rem;
+    height: 100%;
+    // background-color: #bfa1;
 }
 
 .userinfo {
+    width: 100%;
+    height: 272rem;
+    font-family: "HanYi";
+    font-size: 20rem;
+    color: #bee1e7;
+
     .avatar {
-        height: 135px;
+        height: 192rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        padding: 10px;
-        border: 3px solid #2f3637;
-        box-sizing: border-box;
 
         .avatar-img {
+            width: 72rem;
             position: relative;
-            width: 50px;
-            border-radius: 50%;
+
+            img {
+                border-radius: 50%;
+                width: 100%;
+            }
 
             &::after {
                 content: "";
                 display: block;
-                background-image: url('/assets/image/badge.webp');
-                width: 22px;
-                height: 22px;
-                // position: absolute;
+                background-image: url("/assets/image/badge.webp");
+                background-size: contain;
+                width: 30rem;
+                height: 30rem;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+
+    .wrap {
+        height: 80rem;
+        display: flex;
+        border-top: none;
+
+        &>div {
+            height: 100%;
+            width: 50%;
+        }
+
+        .fans {
+            border-right: 3rem solid #2f3637;
+        }
+
+        .fans,
+        .articles {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1rem;
+
+            div:nth-of-type(2){
+                color: #849ba1;
+                font-size: 15rem;
+                margin-top: 8rem;
             }
         }
 
-
-
     }
-
-
-
-}
-
-.category {
-    display: none;
 }
 
 
+
+// .category {
+//     display: none;
+// }
+
+
+.border {
+    border-collapse: collapse;
+    border: 3rem solid #2f3637;
+    box-sizing: border-box;
+}
 
 
 .clearfix::before,
