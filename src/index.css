@@ -3,8 +3,10 @@ html {
 }
 body {
   height: 100vh;
-  font-size: 18rem;
-  color: #73878d;
+  font-family: "HanYi";
+  font-size: 20rem;
+  color: #81989d;
+  background: url('/assets/image/bg2.png') no-repeat center / contain;
   background: url('/assets/image/bg.webp') no-repeat center / contain;
 }
 .container {
@@ -19,8 +21,6 @@ aside {
 .userinfo {
   width: 100%;
   height: 272rem;
-  font-family: "HanYi";
-  font-size: 20rem;
   color: #bee1e7;
 }
 .userinfo .avatar {
@@ -29,6 +29,19 @@ aside {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
+}
+.userinfo .avatar::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 0.1;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/image/icon.webp") no-repeat center;
 }
 .userinfo .avatar .avatar-img {
   width: 72rem;
@@ -75,7 +88,33 @@ aside {
   font-size: 15rem;
   margin-top: 8rem;
 }
-.border {
+.category {
+  font-size: 20rem;
+  color: #81989d;
+}
+.category li {
+  margin: 27rem 0;
+}
+.category li a {
+  display: flex;
+  height: 54rem;
+  align-items: center;
+}
+.category li i {
+  font-size: 37rem;
+  margin: 0 18rem 0 23rem;
+}
+.category li span:not(.default)::after,
+.category li span:not(.default)::before {
+  content: "#";
+}
+.category li.active {
+  border-color: #49d5dd !important;
+  color: #61f0f3 !important;
+  background-color: #1a5272 !important;
+}
+.border,
+.category li {
   border-collapse: collapse;
   border: 3rem solid #2f3637;
   box-sizing: border-box;
@@ -85,6 +124,10 @@ aside {
   content: '';
   display: table;
   clear: both;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 @font-face {
   font-family: HanYi;
