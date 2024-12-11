@@ -136,9 +136,6 @@ aside .category li.active {
 .art-list::-webkit-scrollbar-thumb {
   background: #42a8b9;
 }
-.art-list::-webkit-scrollbar-thumb:hover {
-  background: #42a8b9;
-}
 .art-list li {
   width: 1080rem;
   height: 260rem;
