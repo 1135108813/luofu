@@ -6,6 +6,7 @@ body {
   font-family: "HanYi";
   font-size: 20rem;
   color: #81989d;
+  overflow: hidden;
   background: url('/assets/image/bg2.png') no-repeat center / contain;
   background: url('/assets/image/bg.webp') no-repeat center / contain;
 }
@@ -17,13 +18,14 @@ body {
 aside {
   width: 300rem;
   height: 100%;
+  display: inline-block;
 }
-.userinfo {
+aside .userinfo {
   width: 100%;
   height: 272rem;
   color: #bee1e7;
 }
-.userinfo .avatar {
+aside .userinfo .avatar {
   height: 192rem;
   display: flex;
   flex-direction: column;
@@ -31,7 +33,7 @@ aside {
   justify-content: space-evenly;
   position: relative;
 }
-.userinfo .avatar::before {
+aside .userinfo .avatar::before {
   content: "";
   display: block;
   position: absolute;
@@ -43,15 +45,15 @@ aside {
   height: 100%;
   background: url("/assets/image/icon.webp") no-repeat center;
 }
-.userinfo .avatar .avatar-img {
+aside .userinfo .avatar .avatar-img {
   width: 72rem;
   position: relative;
 }
-.userinfo .avatar .avatar-img img {
+aside .userinfo .avatar .avatar-img img {
   border-radius: 50%;
   width: 100%;
 }
-.userinfo .avatar .avatar-img::after {
+aside .userinfo .avatar .avatar-img::after {
   content: "";
   display: block;
   background-image: url("/assets/image/badge.webp");
@@ -62,59 +64,177 @@ aside {
   right: 0;
   bottom: 0;
 }
-.userinfo .wrap {
+aside .userinfo .wrap {
   height: 80rem;
   display: flex;
   border-top: none;
 }
-.userinfo .wrap > div {
+aside .userinfo .wrap > div {
   height: 100%;
   width: 50%;
 }
-.userinfo .wrap .fans {
+aside .userinfo .wrap .fans {
   border-right: 3rem solid #2f3637;
 }
-.userinfo .wrap .fans,
-.userinfo .wrap .articles {
+aside .userinfo .wrap .fans,
+aside .userinfo .wrap .articles {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   letter-spacing: 1rem;
 }
-.userinfo .wrap .fans div:nth-of-type(2),
-.userinfo .wrap .articles div:nth-of-type(2) {
+aside .userinfo .wrap .fans div:nth-of-type(2),
+aside .userinfo .wrap .articles div:nth-of-type(2) {
   color: #849ba1;
   font-size: 15rem;
   margin-top: 8rem;
 }
-.category {
+aside .category {
   font-size: 20rem;
   color: #81989d;
 }
-.category li {
+aside .category li {
   margin: 25rem 0;
 }
-.category li a {
+aside .category li a {
   display: flex;
   height: 54rem;
   align-items: center;
 }
-.category li i {
+aside .category li i {
   font-size: 37rem;
   margin: 0 18rem 0 23rem;
 }
-.category li span:not(.default)::after,
-.category li span:not(.default)::before {
+aside .category li span {
+  margin-top: 1rem;
+}
+aside .category li span:not(.default)::after,
+aside .category li span:not(.default)::before {
   content: "#";
 }
-.category li.active {
+aside .category li.active {
   border-color: #49d5dd !important;
   color: #61f0f3 !important;
   background-color: #1a5272 !important;
 }
+.art-list {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 45rem;
+  height: 100%;
+  overflow: auto;
+  padding-right: 14rem;
+  scroll-behavior: smooth;
+}
+.art-list::-webkit-scrollbar {
+  width: 4rem;
+}
+.art-list::-webkit-scrollbar-track {
+  background: #282b2e;
+}
+.art-list::-webkit-scrollbar-thumb {
+  background: #42a8b9;
+}
+.art-list::-webkit-scrollbar-thumb:hover {
+  background: #42a8b9;
+}
+.art-list li {
+  width: 1080rem;
+  height: 260rem;
+  padding: 18rem 20rem;
+  position: relative;
+  background-color: #ffffff05;
+  margin-bottom: 17rem;
+  display: flex;
+  align-items: flex-end;
+}
+.art-list li .userinfo {
+  height: 40rem;
+  font-size: 20rem;
+  color: #c1e4ea;
+  display: flex;
+  letter-spacing: 0.4rem;
+  align-items: center;
+}
+.art-list li .userinfo .avatar {
+  width: 38rem;
+}
+.art-list li .userinfo .avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+.art-list li .userinfo .username {
+  margin: 0 6rem;
+}
+.art-list li .userinfo .badge {
+  width: 24rem;
+}
+.art-list li .userinfo .badge img {
+  width: 100%;
+}
+.art-list li h3 {
+  font-size: 26rem;
+  line-height: 2;
+  color: #61f0f3;
+}
+.art-list li .content {
+  font-size: 20rem;
+  line-height: 1.5;
+  margin-top: 4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.art-list li .content .topic::after,
+.art-list li .content .topic::before {
+  content: "#";
+}
+.art-list li .content .topic {
+  color: #42a8b9;
+}
+.art-list li .btns {
+  display: flex;
+  margin-top: 32rem;
+}
+.art-list li .btns i {
+  font-size: 27rem;
+}
+.art-list li .btns .comment,
+.art-list li .btns .like {
+  display: flex;
+  align-items: center;
+  margin-right: 62rem;
+}
+.art-list li .btns .comment span,
+.art-list li .btns .like span {
+  margin-left: 10rem;
+  margin-top: 3rem;
+}
+.art-list li .cover {
+  width: 300rem;
+  height: 170rem;
+  border: 0.5rem solid #fff2;
+  box-sizing: border-box;
+  flex: none;
+  margin-left: 20rem;
+  margin-bottom: 0rem;
+}
+.art-list li .cover img {
+  width: 100%;
+}
+.art-list li .time {
+  text-align: right;
+  margin-right: 5rem;
+  font-size: 16rem;
+  opacity: 0.8;
+  margin-bottom: 20rem;
+}
 .border,
-.category li {
+aside .category li,
+.art-list li {
   border-collapse: collapse;
   border: 3rem solid #2f3637;
   box-sizing: border-box;
