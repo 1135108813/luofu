@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+
+            &:nth-of-type(1) {
+                        width: 40%;
+                        height: 8%;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    &:nth-of-type(2) {
+                        width: 40%;
+                        height: 8%;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    &:nth-of-type(3) {
+                        width: 8%;
+                        height: 40%;
+                        left: 50%;
+                        top: 0;
+                        transform: translateX(-50%);
+                    }
+
+                    &:nth-of-type(4) {
+                        width: 8%;
+                        height: 40%;
+                        left: 50%;
+                        bottom: 0;
+                        transform: translateX(-50%);
+                    }
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #222;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .modal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.4rem;
+            width: 450px;
+            padding: 1.3rem;
+            min-height: 250px;
+            position: absolute;
+            top: 20%;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            z-index: 2;
+        }
+
+        .modal .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal input {
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .modal p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 0.4rem 0 0.2rem;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.4rem;
+            font-weight: 700;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-open {
+            position: absolute;
+            bottom: 150px;
+        }
+
+
+        .btn-close {
+            transform: translate(10px, -20px);
+            padding: 0.5rem 0.7rem;
+            background: #eee;
+            border-radius: 50%;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            backdrop-filter: blur(3px);
+            z-index: 1;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 模态框容器 -->
+    <section class="modal hidden">
+        <div class="flex">
+            <img src="/assets/image/avatar/1.webp" width="50px">
+            <button class="btn-close">X</button>
+        </div>
+        <div>
+            <h3>This is a Modal.</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, maxime facilis voluptatem sed
+                adipisci et alias. Illo dolores voluptates quod nisi beatae sed, pariatur atque, reiciendis, optio
+                laborum culpa recusandae.
+            </p>
+        </div>
+        <input type="text" placeholder="type something">
+        <button class="btn">Submit</button>
+    </section>
+    <!-- 模态框打开时的黑色模糊背景 -->
+    <div class="overlay hidden"></div>
+    <!-- 开关 -->
+    <button class="btn btn-open">Open Modal</button>
+    <script>
+        const modal = document.querySelector(".modal")
+        const overlay = document.querySelector(".overlay")
+        const openBtn = document.querySelector(".btn-open")
+        const closeBtn = document.querySelector(".btn-close")
+
+        openBtn.addEventListener("click", () => {
+            modal.classList.remove("hidden")
+            overlay.classList.remove("hidden")
+        })
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("hidden")
+            overlay.classList.add("hidden")
+        })
+        overlay.addEventListener("click", () => {
+            closeBtn.click()
+        })
+
+
+    </script>
+</body>
+
+</html>
