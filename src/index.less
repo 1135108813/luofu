@@ -120,6 +120,7 @@ aside .category {
     li {
         &:extend(.border);
         margin: 25rem 0;
+        position: relative;
 
         a {
             display: flex;
@@ -141,25 +142,47 @@ aside .category {
             }
         }
 
-        transition: color,
-        border-color,
-        background-color .3s;
+        transition: all .3s;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            background-image: url("/assets/image/topic-bg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: right center;
+            //线性透明度渐变,从左到右
+            mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 1) 120%);
+        }
+
 
         //选中效果 高亮+纹理
         &.active {
             border-color: #49d5dd !important;
             color: #61f0f3 !important;
             background-color: #1a5272 !important;
+
+            &::after {
+                opacity: .1 !important;
+            }
         }
 
+
+
         &:hover:not(.active) {
-            // border-color: #61f0f3 !important;
             border-color: #49d5dd !important;
             background-color: #1a527220 !important;
 
         }
     }
 }
+
 
 
 //? 右侧文章列表
@@ -172,7 +195,7 @@ aside .category {
     padding-right: 14rem;
     scroll-behavior: smooth;
 
-    mask-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 60%);
+    // mask-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 60%);
 
 
     &::-webkit-scrollbar {
@@ -365,14 +388,22 @@ aside .category {
         i:nth-of-type(2) {
             color: #61f0f3;
             opacity: 0;
-            transition: opacity .3s;
+            transition: opacity .2s;
         }
 
-        &:hover i:nth-of-type(2) {
+        //TODO 触发时间后给元素加上active类,保持样式
+        &:active i:nth-of-type(2) {
             opacity: 1;
         }
-        &:hover .like-wrap{
-            transform: translateY(-40rem);
+
+        &:active span:nth-of-type(1) {
+            top: -50%;
+            opacity: 0;
+        }
+
+        &:active span:nth-of-type(2) {
+            top: 25% !important;
+            opacity: 1 !important;
         }
 
         .like-wrap {
@@ -380,21 +411,24 @@ aside .category {
             position: absolute;
             left: 120%;
             top: 50%;
-            outline: 1px solid white;
-            width: 100rem;
-            height: 40rem;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            
             transform: translateY(-50%);
+            width: 100rem;
+            height: 2em;
+
+            span {
+                display: block;
+                height: 100%;
+                position: absolute;
+                top: 25%;
+                opacity: 1;
+                transition: all .2s;
+            }
 
             span:nth-of-type(2) {
-                // display: none;
-                position: absolute;
-                top: 50rem;
-                left: 0;
+                top: 100%;
+                opacity: 0;
             }
+
         }
     }
 
@@ -415,7 +449,6 @@ aside .category {
             background-size: 130% 130%, 80%, 80%;
             background-position: -50% -50%, 50% 50%;
             animation: 10s rotate-07d08c95 linear infinite;
-            opacity: .97;
         }
 
         @keyframes rotate-07d08c95 {
@@ -693,6 +726,10 @@ aside .category {
     background: rgba(255, 255, 255, .1);
     backdrop-filter: blur(15px);
     z-index: 1;
+}
+
+.hidden {
+    display: none;
 }
 
 
